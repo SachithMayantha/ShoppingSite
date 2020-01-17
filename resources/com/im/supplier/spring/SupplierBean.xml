@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<bean id="supplierAction" class="com.im.supplier.action.SupplierAction">
+<property name="supplierBo" ref="supplierBo" />
+</bean>
+<bean id="supplierBo" class="com.im.supplier.bo.SupplierBoImpl" >
+<property name="supplierDao" ref="supplierDao" />
+</bean>
+<bean id="supplierDao" class="com.im.supplier.dao.SupplierDaoImpl" >
+<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="customerAction" class="com.im.customer.action.CustomerAction">
+		<property name="customerBo" ref="customerBo" />
+	</bean>
+	<bean id="customerBo" class="com.im.customer.bo.CustomerBoImpl" >
+			<property name="customerDao" ref="customerDao" />
+	</bean>
+	<!-- sessionFactoy variable come from HibernateDaoSupport -->
+	<bean id="customerDao" class="com.im.customer.dao.CustomerDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

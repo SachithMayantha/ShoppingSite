@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="itemAction" class="com.im.item.action.ItemAction">
+		<property name="itemBo" ref="itemBo" />
+	</bean>
+	<bean id="itemBo" class="com.im.item.bo.ItemBoImpl" >
+			<property name="itemDao" ref="itemDao" />
+	</bean>
+	<!-- sessionFactoy variable come from HibernateDaoSupport -->
+	<bean id="itemDao" class="com.im.item.dao.ItemDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>
